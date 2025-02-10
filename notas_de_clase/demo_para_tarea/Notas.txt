@@ -1,0 +1,34 @@
+revisar minuto 2:41:00 (notas adicionales)
+    https://ulead.sharepoint.com/sites/ULEADGrabacionesdeClases/_layouts/15/stream.aspx?id=%2Fsites%2FULEADGrabacionesdeClases%2FDocumentos%20compartidos%2F03%2E%20Zoom3%2F2025%2F01%2DEnero%2D2025%2F20250127%202025%2D%20I%20BCD4204%20Estructura%20de%20Datos%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Edfe9569b%2D152e%2D43bf%2D9734%2Dae3c88c1d074"
+
+https://ulead.sharepoint.com/sites/ULEADGrabacionesdeClases/_layouts/15/stream.aspx?id=%2Fsites%2FULEADGrabacionesdeClases%2FDocumentos%20compartidos%2F03%2E%20Zoom3%2F2025%2F02%2DFebrero%2D2025%2F20250203%202025%2D%20I%20BCD4204%20Estructura%20de%20Datos%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E594e4b74%2D2471%2D4fb6%2Db327%2D6fe5a55c74e0
+
+PRIMERA PARTE DE LA TAREA
+
+Se procesa cada archivo csv por separado, NO FUSIONAR TODO!!!
+
+Se debe buscar las jugadas que se llaman punt, esto se hace buscando en la columna llamada "PlayType" los valores llamados "Punt"
+    tambien hay que verificar que en la columna "desc" no exista la palabra FUMBLES
+
+En la clase punt_play se debe extraer
+    Columna "GameID"
+    Columna "Date"
+    Columna "time"
+    Un string con las abreviaturas de los equipos en formato “abreviatura del equipo visita” @ “abreviatura del equipo casa”
+        Es decir, una columna que concatene "AwayTeam" @ "HomeTeam"
+    Total de yardas ganas, columna "Yards.Gained"
+    El cuarto en que ocurrió la jugada, columna "qtr"
+
+Se debe ordenar basado en la cantidad de yardas ganas. En la clase punt_play debe trabajar con los metodos __eq__ __gt__ __lt__
+
+Luego debe brindar un archivo con los resultados procesados.
+
+Se debe agregar la capacidad de mostrar cuantos comparadores y sustituciones se realizaron
+
+SEGUNDA PARTE
+
+Se debe ordenar primero por "Date" (ascendente)
+Los que estan en la misma fecha, ordenarlos por "qtr" (ascendente)
+Cuando estan en el mismo cuarto, por "Yards.Gained" (descendete)
+Y cuando tienen la misma distancia, por "time" (descendete)
+
