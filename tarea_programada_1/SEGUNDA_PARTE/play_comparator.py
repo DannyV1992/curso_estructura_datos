@@ -23,14 +23,15 @@ class PlayComparator:
         elif play_a.yards_gained < play_b.yards_gained:
             return 1
             
-        # 4. Si las yardas son iguales, comparar por tiempo (descendente)
+        # 4. Si las yardas son iguales, comparar por tiempo (ascendente)
         time_a = datetime.strptime(play_a.time, '%H:%M')
         time_b = datetime.strptime(play_b.time, '%H:%M')
         
-        if time_a > time_b:
+        if time_a < time_b:
             return -1
-        elif time_a < time_b:
+        elif time_a > time_b:
             return 1
             
         # Si todo es igual
         return 0
+
