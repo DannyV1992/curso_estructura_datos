@@ -82,7 +82,6 @@ Los archivos CSV ya están incluidos en el repositorio dentro de la carpeta `.ra
 ## Notas importantes
 - Los archivos de salida se generan en las carpetas `archivos_ordenados` respectivas de cada directorio.
 - El formato de salida es: "PARTE[1/2]-[ALGORITMO]-resultado-[AÑO].csv"
-- Para la PRIMERA PARTE, es probable que el algoritmo de "Quick Sort Recursivo" genere un error y no se logre ejecutar debido a que se supera el límite máximo de recursión permitido en el programa (el cual es 1000 por defecto), por lo cual es un comportamiento esperado.
 
 ## Autor
 Daniel Vásquez González
