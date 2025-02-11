@@ -1,4 +1,3 @@
-from punt_play import PuntPlay  # Importa la clase PuntPlay para representar jugadas tipo "punt"
 from lector_data import LectorData  # Importa la clase LectorData para leer y filtrar datos de archivos CSV
 from sorting_algorithms import (  # Importa los algoritmos de ordenamiento implementados
     bubble_sort,
@@ -24,10 +23,9 @@ def main():  # Define la función principal del programa
     }
     
     for year in years:  # Itera sobre cada año en el rango definido
-        print(f"\n=== Procesando anio {year} ===")  # Imprime un mensaje indicando el año que está siendo procesado
+        print(f"\n=== Procesando año {year} ===")  # Imprime un mensaje indicando el año que está siendo procesado
         
-        lector = LectorData(year)  # Crea instancia para leer datos del año. LectorData() recibe un año como parametro para identificar cual archivo CSV debe abrir
-        punts = lector.read_punts()  # Lee y filtra jugadas tipo punt. read_punts() filtra la informacion del archivo CSV y devuelve una lista
+        punts = LectorData(year).read_punts()  # Lee y filtra jugadas tipo punt. read_punts() filtra la informacion del archivo CSV y devuelve una lista
         print(f"Jugadas cargadas para {year}: {len(punts)}")  # Muestra cantidad de jugadas. {len(punts)} cuenta la cantidad de registros disponibles en punts
         
         for nombre, algoritmo in algoritmos.items():  # Itera sobre cada algoritmo. .items() es una característica de Python que permite iterar sobre los pares clave-valor de un diccionario.
