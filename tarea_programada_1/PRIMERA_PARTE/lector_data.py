@@ -1,38 +1,62 @@
 import csv  # Importa el módulo csv para leer archivos CSV
 import os   # Importa el módulo os para manejo de rutas de archivos
+import platform  # Importa platform para identificar el sistema operativo
 from punt_play import PuntPlay  # Importa la clase PuntPlay del archivo punt_play.py
 
 class LectorData:
     def __init__(self, year):  # Constructor que recibe el año como parámetro
         self.filename = f"pbp_{year}.csv"  # Construye el nombre del archivo CSV basado en el año
-        self.base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Obtiene la ruta base subiendo dos niveles desde el archivo actual. os.path.abspath(__file__) identifica la ubicacion actual del archivo .py y el segundo os.path.dirname() sube un nivel en el directorio.
-        self.file_path = os.path.join(self.base_path, ".raw_data", self.filename)  # Construye la ruta completa al archivo CSV. os.path.join une rutas usando el separador apropiado según el sistema operativo. 
+        self.base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Obtiene la ruta base subiendo dos niveles desde el archivo actual
+        self.file_path = os.path.join(self.base_path, ".raw_data", self.filename)  # Construye la ruta completa al archivo CSV
+        
+        # Determina el sistema operativo y establece la ruta alternativa
+        self.alt_path = "/data/primeraprogramada" if platform.system() == "Darwin" else "c:\\data\\primeraprogramada"  # Darwin es el kernel de MacOS
+        self.alt_file_path = os.path.join(self.alt_path, self.filename)  # Construye la ruta alternativa completa
 
     def read_punts(self):  # Método para leer y filtrar jugadas tipo punt
         punt_plays = []  # Lista para almacenar las jugadas filtradas
+        file_read = False  # Flag para controlar si se logró leer el archivo
         
+        # Primero intenta leer desde la ruta principal
         try:
-            with open(self.file_path, 'r', encoding='utf-8') as file:  # Abre el archivo CSV en modo lectura. encoding='utf-8 especifica la codificación del archivo y "with" asegura que el archivo se cierre correctamente incluso si ocurre un error durante la lectura.
-                csv_reader = csv.DictReader(file)  # Crea un lector CSV que mapea filas a diccionarios, es decir, cada fila se convierte en un diccionario gracias a DictReader. Las claves son el nombre de la columna
+            with open(self.file_path, 'r', encoding='utf-8') as file:  # Intenta abrir el archivo en la ruta principal
+                csv_reader = csv.DictReader(file)  # Crea un lector CSV que mapea filas a diccionarios
+                punt_plays = self._process_csv(csv_reader)  # Procesa el CSV y obtiene las jugadas
+                file_read = True  # Marca que se logró leer el archivo
+                print(f"Archivo leído exitosamente desde: {self.file_path}")
                 
-                for row in csv_reader:  # Itera sobre cada fila del archivo
-                    if row['PlayType'] == 'Punt' and 'FUMBLE' not in row['desc'].upper(): # Filtra solo jugadas tipo Punt que no contengan FUMBLE
-                        
-                        # Crea un nuevo objeto PuntPlay con los datos de la fila
-                        play = PuntPlay(
-                            game_id=row['GameID'],  # ID del juego
-                            away_team=row['AwayTeam'],  # Equipo visitante
-                            home_team=row['HomeTeam'],  # Equipo local
-                            yards_gained=row['Yards.Gained'],  # Yardas ganadas
-                            quarter=row['qtr'],  # Cuarto
-                            date=row['Date'],  # Fecha
-                            time=row['time']  # Hora
-                        )
-                        punt_plays.append(play)  # Agrega la jugada a la lista
-                        
-        except FileNotFoundError:  # Maneja error si no encuentra el archivo. FileNotFoundError pertenece a OS.
-            print(f"Error: no se encontró el archivo {self.filename}")
-        except Exception as e:  # Maneja cualquier otro error. El "as e" permite acceder al mensaje de error específico para mostralo luego en el print.
-            print(f"Error al procesar el archivo {self.filename}: {str(e)}")
+        except FileNotFoundError:  # Si no encuentra el archivo en la ruta principal
+            print(f"No se encontró el archivo en {self.file_path}, intentando ruta alternativa...")
             
+        # Si no se pudo leer el archivo, intenta con la ruta alternativa
+        if not file_read:
+            try:
+                with open(self.alt_file_path, 'r', encoding='utf-8') as file:  # Intenta abrir el archivo en la ruta alternativa
+                    csv_reader = csv.DictReader(file)  # Crea un nuevo lector CSV
+                    punt_plays = self._process_csv(csv_reader)  # Procesa el CSV
+                    print(f"Archivo leído exitosamente desde: {self.alt_file_path}")
+                    
+            except FileNotFoundError:  # Si tampoco encuentra el archivo en la ruta alternativa
+                print(f"Error: no se encontró el archivo {self.filename} en ninguna ubicación")
+            except Exception as e:  # Maneja cualquier otro error
+                print(f"Error al procesar el archivo {self.filename}: {str(e)}")
+                
         return punt_plays  # Retorna la lista de jugadas filtradas
+
+    def _process_csv(self, csv_reader):  # Método auxiliar para procesar el CSV
+        punt_plays = []
+        for row in csv_reader:  # Itera sobre cada fila del archivo
+            if row['PlayType'] == 'Punt' and 'FUMBLE' not in row['desc'].upper():  # Filtra solo jugadas tipo Punt sin FUMBLE
+                # Crea un nuevo objeto PuntPlay con los datos de la fila
+                play = PuntPlay(
+                    game_id=row['GameID'],  # ID del juego
+                    away_team=row['AwayTeam'],  # Equipo visitante
+                    home_team=row['HomeTeam'],  # Equipo local
+                    yards_gained=row['Yards.Gained'],  # Yardas ganadas
+                    quarter=row['qtr'],  # Cuarto
+                    date=row['Date'],  # Fecha
+                    time=row['time']  # Hora
+                )
+                punt_plays.append(play)  # Agrega la jugada a la lista
+        return punt_plays
+

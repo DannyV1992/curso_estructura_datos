@@ -1,6 +1,5 @@
 from punt_play import PuntPlay  # Importa la clase PuntPlay para representar jugadas tipo "punt"
 from lector_data import LectorData  # Importa la clase LectorData para leer y filtrar datos de archivos CSV
-from play_comparator import PlayComparator  # Importa la clase PlayComparator para realizar comparaciones personalizadas
 from sorting_algorithms import (  # Importa los algoritmos de ordenamiento implementados
     bubble_sort,
     insertion_sort,
@@ -21,11 +20,11 @@ def main():  # Define la función principal del programa
         "Merge Sort Iterativo": mergesort_iterative,  # Asocia el nombre "Merge Sort Iterativo" con la función mergesort_iterative
         "Merge Sort Recursivo": mergesort_recursive,  # Asocia el nombre "Merge Sort Recursivo" con la función mergesort_recursive
         "Quick Sort Iterativo": quicksort_iterative,  # Asocia el nombre "Quick Sort Iterativo" con la función quicksort_iterative
-        #"Quick Sort Recursivo": quicksort_recursive  # Comentado: Quick Sort recursivo no se ejecutará en esta configuración
+        "Quick Sort Recursivo": quicksort_recursive   # Asocia el nombre "Quick Sort Recursivo" con la función quicksort_recursive
     }
     
     for year in years:  # Itera sobre cada año en el rango definido
-        print(f"=== Procesando anio {year} ===")  # Imprime un mensaje indicando el año que está siendo procesado
+        print(f"\n=== Procesando anio {year} ===")  # Imprime un mensaje indicando el año que está siendo procesado
         
         lector = LectorData(year)  # Crea instancia para leer datos del año. LectorData() recibe un año como parametro para identificar cual archivo CSV debe abrir
         punts = lector.read_punts()  # Lee y filtra jugadas tipo punt. read_punts() filtra la informacion del archivo CSV y devuelve una lista
