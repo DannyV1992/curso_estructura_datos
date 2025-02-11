@@ -74,12 +74,12 @@ def test_sorting_algorithms():
     if punts:
         # Definir algoritmos a probar
         algoritmos = {
-            "Bubble Sort": bubble_sort,
+            #"Bubble Sort": bubble_sort,
             #"Insertion Sort": insertion_sort,
             #"Merge Sort Iterativo": mergesort_iterative,
             #"Merge Sort Recursivo": mergesort_recursive,
             #"Quick Sort Iterativo": quicksort_iterative,
-            #"Quick Sort Recursivo": quicksort_recursive
+            "Quick Sort Recursivo": quicksort_recursive
         }
         
         # Probar cada algoritmo
