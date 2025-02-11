@@ -80,7 +80,6 @@ Los archivos CSV ya están incluidos en el repositorio dentro de la carpeta `.ra
 ## Notas importantes
 - Los archivos de salida se generan en las carpetas `archivos_ordenados` respectivas de cada directorio.
 - El formato de salida es: "PARTE[1/2]-[ALGORITMO]-resultado-[AÑO].csv"
-- Los datos de entrada deben son archivos CSV de jugadas NFL (2009-2017)
 
 ## Autor
 Daniel Vásquez González
