@@ -13,14 +13,14 @@ curso_estructura_datos/
     │   ├── punt_play.py
     │   ├── lector_data.py
     │   ├── sorting_algorithms.py
-    │   └── main.py
+    │   └── main.py              # Archivo para ejecutar la primera parte
     └── SEGUNDA_PARTE/           # Implementación segunda parte
         ├── archivos_ordenados/  # Resultados ordenados segunda parte
         ├── punt_play.py
         ├── lector_data.py
         ├── play_comparator.py
         ├── sorting_algorithms.py
-        └── main.py
+        └── main.py              # Archivo para ejecutar la segunda parte
 ```
 
 ## Características principales
@@ -63,6 +63,8 @@ Luego de clonar el repositorio y agregarlo en VS Code, dirijase a la terminal y 
    cd SEGUNDA_PARTE
    python main.py
    ```
+3. Alternativamente puede dirijirse a los archivos `main.py` de la [primera parte](PRIMERA_PARTE/main.py) o de la [segunda parte](SEGUNDA_PARTE/main.py) y ejecutar directamente el codigo desde ahi.
+
 Nota sobre navegación entre directorios:
 - Si está en PRIMERA_PARTE y desea acceder a SEGUNDA_PARTE:
   ```
@@ -80,6 +82,7 @@ Los archivos CSV ya están incluidos en el repositorio dentro de la carpeta `.ra
 ## Notas importantes
 - Los archivos de salida se generan en las carpetas `archivos_ordenados` respectivas de cada directorio.
 - El formato de salida es: "PARTE[1/2]-[ALGORITMO]-resultado-[AÑO].csv"
+- Para la PRIMERA PARTE, es probable que el algoritmo de "Quick Sort Recursivo" genere un error y no se logre ejecutar debido a que se supera el límite máximo de recursión permitido en el programa (el cual es 1000 por defecto), por lo cual es un comportamiento esperado.
 
 ## Autor
 Daniel Vásquez González
