@@ -13,14 +13,14 @@ curso_estructura_datos/
     │   ├── punt_play.py
     │   ├── lector_data.py
     │   ├── sorting_algorithms.py
-    │   └── main.py
+    │   └── main.py              # Archivo para ejecutar la primera parte
     └── SEGUNDA_PARTE/           # Implementación segunda parte
         ├── archivos_ordenados/  # Resultados ordenados segunda parte
         ├── punt_play.py
         ├── lector_data.py
         ├── play_comparator.py
         ├── sorting_algorithms.py
-        └── main.py
+        └── main.py              # Archivo para ejecutar la segunda parte
 ```
 
 ## Características principales
@@ -63,6 +63,8 @@ Luego de clonar el repositorio y agregarlo en VS Code, dirijase a la terminal y 
    cd SEGUNDA_PARTE
    python main.py
    ```
+3. Alternativamente puede dirijirse a los archivos `main.py` de la [primera parte](PRIMERA_PARTE/main.py) o de la [segunda parte](SEGUNDA_PARTE/main.py) y ejecutar directamente el codigo desde ahi.
+
 Nota sobre navegación entre directorios:
 - Si está en PRIMERA_PARTE y desea acceder a SEGUNDA_PARTE:
   ```

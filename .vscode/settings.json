@@ -2,7 +2,7 @@
     // CONFIGURACIONES DEL EDITOR
     "editor.fontSize": 14,                   // Tamaño de fuente (número)
     "editor.wordWrap": "on",                 // Ajuste de línea ("on", "off", "wordWrapColumn", "bounded")
-    "editor.formatOnSave": true,             // Formatear al guardar (true/false)
+    "editor.formatOnSave": false,            // Formatear al guardar (true/false)
     "editor.minimap.enabled": false,         // Minimapa lateral (true/false)
     "editor.renderWhitespace": "all",        // Mostrar espacios ("none", "boundary", "selection", "trailing", "all")
     
@@ -13,6 +13,7 @@
     
     // CONFIGURACIONES DE ARCHIVOS
     "files.autoSave": "afterDelay",          // Autoguardado ("off", "afterDelay", "onFocusChange", "onWindowChange")
+    "files.autoSaveDelay": 600000,           // ASigna el tiempo de delay para autosalvar (1000 = 1 segundo), seteado en 10 minutos
     "files.eol": "\n",                       // Fin de línea ("\n" para Unix, "\r\n" para Windows)
     "files.encoding": "utf8",                // Codificación de archivos
     

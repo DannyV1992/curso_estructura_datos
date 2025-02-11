@@ -1,4 +1,3 @@
-from punt_play import PuntPlay  # Importa la clase para crear instancias jugadas
 from lector_data import LectorData  # Importa la clase para leer datos de archivos CSV
 from sorting_algorithms import (  # Importa todos los algoritmos de ordenamiento
     bubble_sort,
@@ -10,24 +9,23 @@ from sorting_algorithms import (  # Importa todos los algoritmos de ordenamiento
 )
 
 def main():  # Función principal del programa
-    print("=== PRIMERA PARTE - ANALISIS DE ALGORITMOS DE ORDENAMIENTO ===\n")  # Imprime título del programa
+    print("=== PRIMERA PARTE - ANÁLISIS DE ALGORITMOS DE ORDENAMIENTO ===\n")  # Imprime título del programa
     
     years = range(2009, 2018)  # Define rango de años a procesar (2009-2017)
     
-    algoritmos = {  # Diccionario que mapea nombres de algoritmos con sus funciones
-        "Bubble Sort": bubble_sort,
-        #"Insertion Sort": insertion_sort,
-        #"Merge Sort Iterativo": mergesort_iterative,
-        #"Merge Sort Recursivo": mergesort_recursive,
-        #"Quick Sort Iterativo": quicksort_iterative,
-        #"Quick Sort Recursivo": quicksort_recursive
+    algoritmos = {  # Crea un diccionario que asocia nombres de algoritmos con sus respectivas funciones
+        "Bubble Sort": bubble_sort,  # Asocia el nombre "Bubble Sort" con la función bubble_sort
+        "Insertion Sort": insertion_sort,  # Asocia el nombre "Insertion Sort" con la función insertion_sort
+        "Merge Sort Iterativo": mergesort_iterative,  # Asocia el nombre "Merge Sort Iterativo" con la función mergesort_iterative
+        "Merge Sort Recursivo": mergesort_recursive,  # Asocia el nombre "Merge Sort Recursivo" con la función mergesort_recursive
+        "Quick Sort Iterativo": quicksort_iterative,  # Asocia el nombre "Quick Sort Iterativo" con la función quicksort_iterative
+        "Quick Sort Recursivo": quicksort_recursive   # Asocia el nombre "Quick Sort Recursivo" con la función quicksort_recursive
     }
         
     for year in years:  # Itera sobre cada año en el rango definido
-        print(f"=== Procesando anio {year} ===")  # Imprime un mensaje indicando el año que está siendo procesado
+        print(f"\n=== Procesando año {year} ===")  # Imprime un mensaje indicando el año que está siendo procesado
         
-        lector = LectorData(year)  # Crea instancia para leer datos del año. LectorData() recibe un año como parametro para identificar cual archivo CSV debe abrir
-        punts = lector.read_punts()  # Lee y filtra jugadas tipo punt. read_punts() filtra la informacion del archivo CSV y devuelve una lista
+        punts = LectorData(year).read_punts()  # Lee y filtra jugadas tipo punt. read_punts() filtra la informacion del archivo CSV y devuelve una lista
         print(f"Jugadas cargadas para {year}: {len(punts)}")  # Muestra cantidad de jugadas. {len(punts)} cuenta la cantidad de registros disponibles en punts
         
         for nombre, algoritmo in algoritmos.items():  # Itera sobre cada algoritmo. .items() es una característica de Python que permite iterar sobre los pares clave-valor de un diccionario.

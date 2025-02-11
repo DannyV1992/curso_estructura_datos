@@ -1,5 +1,7 @@
 import time  # Proporciona varias funciones para trabajar con tiempo
 import os  # Importa el módulo os para manejo de rutas de archivos
+import sys # Importa el módulo sys que proporciona acceso a algunas variables y funciones utilizadas o mantenidas por el intérprete de Python
+sys.setrecursionlimit(3000) # Aumenta el límite de recursión del sistema a 3000 llamadas (por default es 1000)
 
 # ------------------------------Archivos de salida por año-------------------------------
 def save_results_to_csv(punt_plays, algorithm_name, year):  # Función para guardar resultados en CSV
