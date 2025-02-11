@@ -7,7 +7,7 @@ class PuntPlay:
         self.date = date  # Almacena la fecha de la jugada
         self.time = time  # Almacena la hora de la jugada
 
-    # Sobrecarga de operadores, esto permite definir cómo se comportará un objeto cuando se utilizan operadores comunes (como +, -, <, >, ==). Retorna un valor booleano
+    # Sobreescritura de operadores, esto permite definir cómo se comportará un objeto cuando se utilizan operadores comunes (como +, -, <, >, ==). Retorna un valor booleano
 
     def __eq__(self, other):  # Operador de igualdad (==)
         return self.yards_gained == other.yards_gained  # Compara si las yardas ganadas son iguales
@@ -23,6 +23,6 @@ class PuntPlay:
 
     def __ge__(self, other):  # Operador mayor o igual que (>=)
         return self.yards_gained >= other.yards_gained  # Compara si las yardas ganadas son mayores o iguales
-
-    def __str__(self):  # Método para convertir el objeto a string
-        return f"{self.game_id},{self.teams},{self.yards_gained},{self.quarter},{self.date},{self.time}"  # Retorna string con todos los atributos separados por coma
+    
+    def __str__(self):  # Método que convierte el objeto PuntPlay a string con formato CSV
+        return f"{self.game_id},{self.teams},{self.yards_gained},{self.quarter},{self.date},{self.time}"  # Retorna string con atributos separados por comas

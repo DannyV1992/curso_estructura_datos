@@ -3,30 +3,24 @@ import os
 from play_comparator import PlayComparator
 
 # ------------------------------Archivos de salida por año-------------------------------
-def save_results_to_csv(punt_plays, algorithm_name, year):
-    # Construir la ruta a la carpeta archivos_ordenados
-    current_dir = os.path.dirname(os.path.abspath(__file__))  # os.path.abspath(__file__) obtiene la ruta absoluta del archivo actual y os.path.dirname() sube 1 nivel hasta tarea_programada_1
-    output_dir = os.path.join(current_dir, "archivos_ordenados") # os.path.join() construye la ruta completa
-        
-    # Construir la ruta completa del archivo
-    # output_filename = f"PARTE1-{algorithm_name}-resultado.csv" # Para cuando se quiere agrupar todos los años en un mismo archivo
-    output_filename = f"PARTE2_{algorithm_name}_resultado_{year}.csv"
-    output_path = os.path.join(output_dir, output_filename)
+def save_results_to_csv(punt_plays, algorithm_name, year):  # Función para guardar resultados en CSV
+    current_dir = os.path.dirname(os.path.abspath(__file__))  # os.path.abspath(__file__) obtiene la ruta del archivo .py y os.path.dirname del directorio ("C:\\Users\\usuario\\Documents\\tarea_programada_1\\PRIMERA_PARTE").
+    output_dir = os.path.join(current_dir, "archivos_ordenados")  # Construye ruta para carpeta de salida agregando \\archivos_ordenados a la direccion
+    
+    output_filename = f"PARTE1_{algorithm_name}_resultado_{year}.csv"  # Genera nombre del archivo de salida
+    output_path = os.path.join(output_dir, output_filename)  # Construye ruta completa del archivo
     
     try:
-        with open(output_path, 'w', encoding='utf-8', newline='') as file:
-
-            # Escribir encabezados
-            headers = "GameID,Teams,Yards_Gained,Quarter,Date,Time\n"
-            file.write(headers)
-
-            # Escribir datos
-            for play in punt_plays:
-                file.write(f"{str(play)}\n")
-        print(f"Archivo guardado exitosamente en: {output_path}")
+        with open(output_path, 'w', encoding='utf-8', newline='') as file:  # Abre archivo en modo escritura
+            headers = "GameID,Teams,Yards_Gained,Quarter,Date,Time\n"  # Define encabezados del CSV
+            file.write(headers)  # Escribe encabezados
+            
+            for play in punt_plays:  # Itera sobre cada jugada
+                file.write(f"{str(play)}\n")  # Escribe cada jugada en el archivo. Aqui se usa explicitamente el __str__ modificado en PuntPlay
+        print(f"Archivo guardado exitosamente en: {output_path}")  # Confirma guardado exitoso
     except Exception as e:
-        print(f"Error al guardar el archivo {output_filename}: {str(e)}")
-
+        print(f"Error al guardar el archivo {output_filename}: {str(e)}")  # Maneja errores de escritura. e funciona como una variable para almacenar el tipo de error
+        
 # ------------------------------Bubble Sort--------------------------------
 def bubble_sort(punt_plays, year):
     comparator = PlayComparator()

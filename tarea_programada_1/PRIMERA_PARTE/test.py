@@ -67,30 +67,38 @@ if __name__ == "__main__":
 # .........................................
 
 def test_sorting_algorithms():
+    # Inicializar el lector con año específico
     lector = LectorData(2017)
     punts = lector.read_punts()
     
     if punts:
+        # Definir algoritmos a probar
         algoritmos = {
             "Bubble Sort": bubble_sort,
-            "Insertion Sort": insertion_sort,
-            "Merge Sort Iterativo": mergesort_iterative,
-            "Merge Sort Recursivo": mergesort_recursive,
-            "Quick Sort Iterativo": quicksort_iterative,
-            "Quick Sort Recursivo": quicksort_recursive
+            #"Insertion Sort": insertion_sort,
+            #"Merge Sort Iterativo": mergesort_iterative,
+            #"Merge Sort Recursivo": mergesort_recursive,
+            #"Quick Sort Iterativo": quicksort_iterative,
+            #"Quick Sort Recursivo": quicksort_recursive
         }
         
+        # Probar cada algoritmo
         for nombre, algoritmo in algoritmos.items():
-            print(f"\n=== {nombre} ===")
-            punts_copy = punts.copy()  # Trabajamos con una copia para cada algoritmo
-            stats = algoritmo(punts_copy)
+            print(f"\n=== Probando {nombre} ===")
+            punts_copy = punts.copy()  # Crear copia para cada prueba
             
-            print("\nEstadísticas:")
+            # Ejecutar algoritmo y obtener estadísticas
+            stats = algoritmo(punts_copy, 2017)  # Añadir el año como parámetro
+            
+            # Mostrar resultados
+            print("\nEstadisticas:")
             print(f"Tiempo inicio: {stats['tiempo_inicio']}")
             print(f"Tiempo final: {stats['tiempo_final']}")
-            print(f"Duración: {stats['duracion']}")
+            print(f"Duracion: {stats['duracion']}")
             print(f"Comparaciones: {stats['comparaciones']}")
             print(f"Intercambios: {stats['intercambios']}")
+            print("-" * 50)
 
 if __name__ == "__main__":
     test_sorting_algorithms()
+    
