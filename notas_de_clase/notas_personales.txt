@@ -41,7 +41,6 @@ Moverse entre carpetas en la terminal:
 
     cd "H:\Mi unidad\Universidad\Ulead\Repos\curso_estructura_datos"            # Selecionar una direcion especifica
 
-    
 Luego de seleccionar la ruta, clonar el repo
     git clone https://github.com/DannyV1992/curso_estructura_datos
 O si se quiere especificar donde copiar el repo
