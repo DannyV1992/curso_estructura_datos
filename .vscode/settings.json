@@ -1,27 +1,34 @@
 {
-    "editor.fontSize": 14,
-    "editor.wordWrap": "on",
-    "editor.formatOnSave": true,
-    "editor.minimap.enabled": false,
-    "workbench.colorTheme": "Default Dark+",
-    "terminal.integrated.fontSize": 12,
-    "files.autoSave": "afterDelay",
-    
+    // Configuraciones del Editor
+    "editor.fontSize": 14,                    // Tamaño de fuente del editor
+    "editor.wordWrap": "on",                  // Ajuste de línea automático
+    "editor.formatOnSave": true,              // Formatear al guardar
+    "editor.minimap.enabled": false,          // Desactiva el minimapa lateral
+    "workbench.colorTheme": "Default Dark+",  // Tema oscuro por defecto
+    "terminal.integrated.fontSize": 12,       // Tamaño de fuente en terminal
+    "files.autoSave": "afterDelay",           // Autoguardado después de un delay
+
+    /* 
+    Configuraciones específicas de Python:
+    Estas configuraciones afectan solo a archivos .py
+    */
     "python.defaultInterpreterPath": "python",
-    "python.formatting.provider": "autopep8",
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "autopep8",  // Formateador de código
+    "python.linting.enabled": true,           // Habilita el análisis de código
+    "python.linting.pylintEnabled": true,     // Usa Pylint como analizador
     "python.analysis.typeCheckingMode": "basic",
-    
+
+    // Configuraciones específicas para archivos Python
     "[python]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [80],
-        "editor.renderWhitespace": "all"
+        "editor.formatOnSave": true,          // Formatear Python al guardar
+        "editor.formatOnType": true,          // Formatear mientras escribes
+        "editor.rulers": [80],                // Línea guía en columna 80
+        "editor.renderWhitespace": "all"      // Mostrar espacios en blanco
     },
-    
-    "code-runner.runInTerminal": true,
+
+    // Configuraciones de Code Runner
+    "code-runner.runInTerminal": true,        // Ejecutar en terminal
     "code-runner.executorMap": {
-        "python": "python -u"
+        "python": "python -u"                 // Comando para ejecutar Python
     }
 }
