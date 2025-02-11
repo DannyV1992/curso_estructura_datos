@@ -50,7 +50,7 @@ curso_estructura_datos/
 - No se requieren bibliotecas adicionales (solo biblioteca estándar de Python)
 
 ## Ejecución
-Para ejecutar el codigo dirijase a la terminal.
+Luego de clonar el repositorio y agregarlo en VS Code, dirijase a la terminal y ejecute los siguientes comandos:
 1. Si desea ejecutar los archivos de la primera parte:
    ```
    cd tarea_programada_1
@@ -63,7 +63,7 @@ Para ejecutar el codigo dirijase a la terminal.
    cd SEGUNDA_PARTE
    python main.py
    ```
-3. Nota sobre navegación entre directorios:
+Nota sobre navegación entre directorios:
 - Si está en PRIMERA_PARTE y desea acceder a SEGUNDA_PARTE:
   ```
   cd ..
