@@ -57,3 +57,6 @@ Activar el ambiente
 --------------------------REQUISITOS--------------------------
 Se debe crear un archivo txt para agregar todas las dependencias, se debe correr el comando cada vez que una dependencia nueva es agregada
    pip freeze > requirements.txt
+
+--------------------------CORRER CODIGO EN TERMINAL U OUTPUT--------------------------
+Code-runner: Run In Terminal
