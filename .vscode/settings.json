@@ -1,0 +1,27 @@
+{
+    "editor.fontSize": 14,
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Default Dark+",
+    "terminal.integrated.fontSize": 12,
+    "files.autoSave": "afterDelay",
+    
+    "python.defaultInterpreterPath": "python",
+    "python.formatting.provider": "autopep8",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.analysis.typeCheckingMode": "basic",
+    
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [80],
+        "editor.renderWhitespace": "all"
+    },
+    
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "python": "python -u"
+    }
+}
