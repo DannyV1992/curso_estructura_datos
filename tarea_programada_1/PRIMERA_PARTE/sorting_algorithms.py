@@ -3,7 +3,7 @@ import os  # Importa el módulo os para manejo de rutas de archivos
 import sys # Importa el módulo sys que proporciona acceso a algunas variables y funciones utilizadas o mantenidas por el intérprete de Python
 sys.setrecursionlimit(3000) # Aumenta el límite de recursión del sistema a 3000 llamadas (por default es 1000)
 
-# ------------------------------Archivos de salida por año-------------------------------
+# ------------------------------Archivos CSV por año-------------------------------
 def save_results_to_csv(punt_plays, algorithm_name, year):  # Función para guardar resultados en CSV
     current_dir = os.path.dirname(os.path.abspath(__file__))  # os.path.abspath(__file__) obtiene la ruta del archivo .py y os.path.dirname del directorio ("C:\\Users\\usuario\\Documents\\tarea_programada_1\\PRIMERA_PARTE").
     output_dir = os.path.join(current_dir, "archivos_ordenados")  # Construye ruta para carpeta de salida agregando \\archivos_ordenados a la direccion
@@ -21,6 +21,29 @@ def save_results_to_csv(punt_plays, algorithm_name, year):  # Función para guar
         print(f"Archivo guardado exitosamente en: {output_path}")  # Confirma guardado exitoso
     except Exception as e:
         print(f"Error al guardar el archivo {output_filename}: {str(e)}")  # Maneja errores de escritura
+
+# ------------------------------Archivo de estadisticas-------------------------------
+def save_stats(stats_dict, algorithm_name, year):
+    current_dir = os.path.dirname(os.path.abspath(__file__))  # os.path.abspath(__file__) obtiene la ruta del archivo .py y os.path.dirname del directorio ("C:\\Users\\usuario\\Documents\\tarea_programada_1\\PRIMERA_PARTE").
+    output_dir = os.path.join(current_dir, "archivos_ordenados")  # Construye ruta para carpeta de salida agregando \\archivos_ordenados a la direccion
+    
+    stats_filename = ".PARTE1_estadisticas_completas.txt" # Un solo archivo para todas las estadísticas
+    stats_path = os.path.join(output_dir, stats_filename)
+    
+    try:
+        with open(stats_path, 'a', encoding='utf-8') as file: # Modo 'a' (append) para agregar al archivo si ya existe. La funcion Open abre el archivo si existe o lo crea si no lo encuentra
+            file.write(f"\n{'='*50}\n")
+            file.write(f"Estadísticas para {algorithm_name} - Año {year}\n")
+            file.write(f"{'='*50}\n")
+            file.write(f"Tiempo inicio: {stats_dict['tiempo_inicio']}\n")
+            file.write(f"Tiempo final: {stats_dict['tiempo_final']}\n")
+            file.write(f"Duración: {stats_dict['duracion']}\n")
+            file.write(f"Total comparaciones: {stats_dict['comparaciones']}\n")
+            file.write(f"Total intercambios: {stats_dict['intercambios']}\n\n")
+            
+        print(f"Estadísticas agregadas a: {stats_path}")
+    except Exception as e:
+        print(f"Error al guardar las estadísticas: {str(e)}")
 
 # ------------------------------Bubble Sort--------------------------------
 def bubble_sort(punt_plays, year):  # Implementación de Bubble Sort
@@ -41,13 +64,18 @@ def bubble_sort(punt_plays, year):  # Implementación de Bubble Sort
     # save_results_to_csv(punt_plays, "BUBBLE") # Se usa para cuando se quiere guardar todos los años en un solo archivo
     save_results_to_csv(punt_plays, "BUBBLE", year)  # Guarda resultados
 
-    return {  # Retorna un diccionario con las estadísticas de ejecución
+    stats = {  # Retorna un diccionario con las estadísticas de ejecución
         "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),  # Convierte el timestamp inicial a formato hora:minuto:segundo
         "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),    # Convierte el timestamp actual a formato hora:minuto:segundo
         "duracion": f"{tiempo_total:.2f} segundos",  # Formatea el tiempo total con 2 decimales y añade "segundos"
         "comparaciones": comparaciones,  # Número total de comparaciones realizadas
         "intercambios": intercambios     # Número total de intercambios realizados
     }
+
+    # Guardar estadísticas
+    save_stats(stats, "BUBBLE SORT", year)
+    
+    return stats
 
 # ------------------------------Insertion Sort--------------------------------
 def insertion_sort(punt_plays, year):  # Implementación de Insertion Sort
@@ -71,13 +99,18 @@ def insertion_sort(punt_plays, year):  # Implementación de Insertion Sort
     tiempo_total = time.time() - tiempo_inicio  # Calcula tiempo total
     save_results_to_csv(punt_plays, "INSERTION", year)  # Guarda resultados
 
-    return {  # Retorna un diccionario con las estadísticas de ejecución
+    stats = {  # Retorna un diccionario con las estadísticas de ejecución
         "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),  # Convierte el timestamp inicial a formato hora:minuto:segundo
         "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),    # Convierte el timestamp actual a formato hora:minuto:segundo
         "duracion": f"{tiempo_total:.2f} segundos",  # Formatea el tiempo total con 2 decimales y añade "segundos"
         "comparaciones": comparaciones,  # Número total de comparaciones realizadas
         "intercambios": intercambios     # Número total de intercambios realizados
     }
+
+    # Guardar estadísticas
+    save_stats(stats, "INSERTION SORT", year)
+    
+    return stats
 
 """
 Lista inicial: [5, 2, 4, 1, 3]
@@ -133,13 +166,18 @@ def mergesort_recursive(punt_plays, year):  # Implementación principal de Merge
 
     save_results_to_csv(punt_plays, "MERGE_RECURSIVO", year)  # Guarda resultados en archivo CSV
     
-    return {  # Retorna diccionario con estadísticas
-        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),
-        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),
-        "duracion": f"{tiempo_total:.2f} segundos",
-        "comparaciones": comparaciones,
-        "intercambios": intercambios
+    stats = {  # Retorna un diccionario con las estadísticas de ejecución
+        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),  # Convierte el timestamp inicial a formato hora:minuto:segundo
+        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),    # Convierte el timestamp actual a formato hora:minuto:segundo
+        "duracion": f"{tiempo_total:.2f} segundos",  # Formatea el tiempo total con 2 decimales y añade "segundos"
+        "comparaciones": comparaciones,  # Número total de comparaciones realizadas
+        "intercambios": intercambios     # Número total de intercambios realizados
     }
+
+    # Guardar estadísticas
+    save_stats(stats, "MERGE SORT RECURSIVO", year)
+    
+    return stats
 
 # ------------------------------Merge Sort Iterativo--------------------------------
 def mergesort_iterative(punt_plays, year):
@@ -190,13 +228,18 @@ def mergesort_iterative(punt_plays, year):
 
     save_results_to_csv(punt_plays, "MERGE_ITERATIVO", year)  # Guarda resultados en CSV
 
-    return {  # Retorna estadísticas de ejecución
-        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),
-        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),
-        "duracion": f"{tiempo_total:.2f} segundos",
-        "comparaciones": comparaciones,
-        "intercambios": intercambios
+    stats = {  # Retorna un diccionario con las estadísticas de ejecución
+        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),  # Convierte el timestamp inicial a formato hora:minuto:segundo
+        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),    # Convierte el timestamp actual a formato hora:minuto:segundo
+        "duracion": f"{tiempo_total:.2f} segundos",  # Formatea el tiempo total con 2 decimales y añade "segundos"
+        "comparaciones": comparaciones,  # Número total de comparaciones realizadas
+        "intercambios": intercambios     # Número total de intercambios realizados
     }
+
+    # Guardar estadísticas
+    save_stats(stats, "MERGE SORT ITERATIVO", year)
+    
+    return stats
 
 # ------------------------------Quick Sort Recursivo--------------------------------
 def quicksort_recursive(punt_plays, year):  # Función principal de Quick Sort recursivo
@@ -232,13 +275,18 @@ def quicksort_recursive(punt_plays, year):  # Función principal de Quick Sort r
 
     save_results_to_csv(punt_plays, "QUICK_RECURSIVO", year)  # Guarda resultados en CSV
 
-    return {  # Retorna diccionario con estadísticas
-        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),
-        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),
-        "duracion": f"{tiempo_total:.2f} segundos",
-        "comparaciones": comparaciones,
-        "intercambios": intercambios
+    stats = {  # Retorna un diccionario con las estadísticas de ejecución
+        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),  # Convierte el timestamp inicial a formato hora:minuto:segundo
+        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),    # Convierte el timestamp actual a formato hora:minuto:segundo
+        "duracion": f"{tiempo_total:.2f} segundos",  # Formatea el tiempo total con 2 decimales y añade "segundos"
+        "comparaciones": comparaciones,  # Número total de comparaciones realizadas
+        "intercambios": intercambios     # Número total de intercambios realizados
     }
+
+    # Guardar estadísticas
+    save_stats(stats, "QUICK SORT RECURSIVO", year)
+    
+    return stats
 
 # ------------------------------Quick Sort Iterativo--------------------------------
 def quicksort_iterative(punt_plays, year):  # Función principal de QuickSort iterativo
@@ -297,10 +345,15 @@ def quicksort_iterative(punt_plays, year):  # Función principal de QuickSort it
 
     save_results_to_csv(punt_plays, "QUICK_ITERATIVO", year)  # Guarda resultados en archivo CSV
 
-    return {  # Retorna estadísticas de ejecución
-        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),
-        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),
-        "duracion": f"{tiempo_total:.2f} segundos",
-        "comparaciones": comparaciones,
-        "intercambios": intercambios
+    stats = {  # Retorna un diccionario con las estadísticas de ejecución
+        "tiempo_inicio": time.strftime("%H:%M:%S", time.localtime(tiempo_inicio)),  # Convierte el timestamp inicial a formato hora:minuto:segundo
+        "tiempo_final": time.strftime("%H:%M:%S", time.localtime(time.time())),    # Convierte el timestamp actual a formato hora:minuto:segundo
+        "duracion": f"{tiempo_total:.2f} segundos",  # Formatea el tiempo total con 2 decimales y añade "segundos"
+        "comparaciones": comparaciones,  # Número total de comparaciones realizadas
+        "intercambios": intercambios     # Número total de intercambios realizados
     }
+
+    # Guardar estadísticas
+    save_stats(stats, "QUICK SORT ITERATIVO", year)
+    
+    return stats
