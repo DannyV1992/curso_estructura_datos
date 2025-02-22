@@ -6,14 +6,8 @@ Este proyecto implementa diferentes algoritmos de ordenamiento para procesar dat
 ## Estructura del proyecto
 ```
 curso_estructura_datos/
-└── tarea_programada_1/
-    ├── .raw_data/               # Archivos CSV (pbp_2009.csv hasta pbp_2017.csv)
-    ├── PRIMERA_PARTE/           # Implementación primera parte
-    │   ├── archivos_ordenados/  # Resultados ordenados primera parte
-    │   ├── punt_play.py
-    │   ├── lector_data.py
-    │   ├── sorting_algorithms.py
-    │   └── main.py              # Archivo para ejecutar la primera parte
+└── tarea_programada_2/
+    ├── .raw_data/               # Archivos CSV del algoritmo BUBBLE SORT de la primerparte de la tarea programada 1
     └── SEGUNDA_PARTE/           # Implementación segunda parte
         ├── archivos_ordenados/  # Resultados ordenados segunda parte
         ├── punt_play.py
