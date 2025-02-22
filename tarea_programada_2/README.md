@@ -5,18 +5,19 @@ Este proyecto implementa un sistema de almacenamiento de registros utilizando un
 
 ## Estructura del proyecto
 ```
-tarea_programada_2/
-├── src/
-│   ├── __init__.py
-│   ├── file_handler.py
-│   ├── hash_function.py
-│   ├── menu_handler.py
-│   ├── punt_play.py
-│   └── main.py
-├── data/
-│   ├── .raw_data/          # Archivos CSV originales
-│   └── processed_data/     # Archivos binarios generados
-└── README.md
+curso_estructura_datos/
+└── tarea_programada_2/
+    ├── src/
+    │   ├── __init__.py
+    │   ├── file_handler.py
+    │   ├── hash_function.py
+    │   ├── menu_handler.py
+    │   ├── punt_play.py
+    │   └── main.py             # Archivo para ejecutar el modelo
+    ├── data/
+    │   ├── .raw_data/          # Archivos CSV originales
+    │   └── processed_data/     # Archivos binarios generados
+    └── README.md
 ```
 
 ## Componentes principales
