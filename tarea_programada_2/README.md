@@ -1,81 +1,53 @@
-# Tarea programada 1
+# Tarea programada 2
 
 ## Descripción
-Este proyecto implementa diferentes algoritmos de ordenamiento para procesar datos de jugadas tipo "punt" de la NFL, utilizando programación orientada a objetos en Python. El proyecto está dividido en dos partes principales.
+Este proyecto implementa un sistema de almacenamiento de registros utilizando una estrategia de hash. El sistema lee datos de jugadas de fútbol americano y los almacena en archivos binarios, utilizando una función hash para determinar su ubicación.
 
 ## Estructura del proyecto
 ```
-curso_estructura_datos/
-└── tarea_programada_2/
-    ├── .raw_data/               # Archivos CSV del algoritmo BUBBLE SORT de la primerparte de la tarea programada 1
-    └── SEGUNDA_PARTE/           # Implementación segunda parte
-        ├── archivos_ordenados/  # Resultados ordenados segunda parte
-        ├── punt_play.py
-        ├── lector_data.py
-        ├── play_comparator.py
-        ├── sorting_algorithms.py
-        └── main.py              # Archivo para ejecutar la segunda parte
+tarea_programada_2/
+├── src/
+│   ├── __init__.py
+│   ├── file_handler.py
+│   ├── hash_function.py
+│   ├── menu_handler.py
+│   ├── punt_play.py
+│   └── main.py
+├── data/
+│   ├── .raw_data/          # Archivos CSV originales
+│   └── processed_data/     # Archivos binarios generados
+└── README.md
 ```
 
-## Características principales
+## Componentes principales
+- `file_handler.py`: maneja la lectura y escritura de archivos binarios
+- `hash_function.py`: implementa la función hash para distribuir los registros
+- `menu_handler.py`: gestiona la interfaz de usuario
+- `punt_play.py`: define la clase para los registros de jugadas
+- `main.py`: punto de entrada del programa
 
-### Primera parte
-- Ordenamiento por yardas ganadas (descendente)
-- Implementación de operadores de comparación (>, <, ==, >=, <=)
-- Medición de tiempos, comparaciones e intercambios
-- Algoritmos implementados:
-  * Bubble Sort
-  * Insertion Sort
-  * Merge Sort (recursivo y no recursivo)
-  * Quick Sort (recursivo y no recursivo)
-
-### Segunda parte
-- Ordenamiento por múltiples criterios:
-  1. Fecha (ascendente)
-  2. Cuarto (ascendente)
-  3. Yardas ganadas (descendente)
-  4. Hora (ascendente)
-- Uso de PlayComparator para comparaciones
-- Solo medición de tiempos de ejecución
+## Funcionalidades
+1. **Cargar datos**: lee archivos CSV y almacena registros usando función hash
+2. **Buscar datos**: busca registros por posición (0-749)
+3. **Manejo de colisiones**: almacena colisiones en archivos separados
 
 ## Requisitos
 - Python 3.x
-- Visual Studio Code
-- No se requieren bibliotecas adicionales (solo biblioteca estándar de Python)
+- Solo utiliza módulos de la Python Standard Library
+- No requiere instalación de paquetes adicionales
 
-## Ejecución
-Luego de clonar el repositorio y agregarlo en VS Code, dirijase a la terminal y ejecute los siguientes comandos:
-1. Si desea ejecutar los archivos de la primera parte:
-   ```
-   cd tarea_programada_1
-   cd PRIMERA_PARTE
-   python main.py
-   ```
-2. Si desea ejecutar los archivos de la segunda parte:
-   ```
-   cd tarea_programada_1
-   cd SEGUNDA_PARTE
-   python main.py
-   ```
-3. Alternativamente puede dirijirse a los archivos `main.py` de la [primera parte](PRIMERA_PARTE/main.py) o de la [segunda parte](SEGUNDA_PARTE/main.py) y ejecutar directamente el codigo desde ahi.
+## Uso
+1. Ejecutar `main.py`
+2. Seleccionar opción del menú:
+   - 1: Cargar datos
+   - 2: Buscar datos
+   - 3: Salir
 
-Nota sobre navegación entre directorios:
-- Si está en PRIMERA_PARTE y desea acceder a SEGUNDA_PARTE:
-  ```
-  cd ..
-  cd SEGUNDA_PARTE
-  ```
-- Si está en SEGUNDA_PARTE y desea acceder a PRIMERA_PARTE:
-  ```
-  cd ..
-  cd PRIMERA_PARTE
-  ```
-
-Los archivos CSV ya están incluidos en el repositorio dentro de la carpeta `.raw_data`, por lo que no es necesario descargarlos o agregarlos manualmente.
-
-## Notas importantes
-- Los archivos de salida se generan en las carpetas `archivos_ordenados` respectivas de cada directorio.
-- El formato de salida es: "PARTE[1/2]-[ALGORITMO]-resultado-[AÑO].csv"
+## Archivos de datos
+- Entrada: archivos CSV ubicados en `.raw_data/`
+- Salida: archivos .dat ubicados en en `processed_data/`
+  - `info.dat`: archivo principal (750 registros)
+  - `xxx-col.dat`: archivos de colisiones
 
 ## Autor
 Daniel Vásquez González
