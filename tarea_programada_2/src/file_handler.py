@@ -16,7 +16,7 @@ class FileHandler: # Define la clase para manejar archivos
                 for _ in range(750): # Itera 750 veces
                     pickle.dump(None, file) # Escribe None como registro vacío
     
-    def write_record(self, position: int, punt_play: PuntPlay) -> bool: # Método para escribir un registro en posición específica
+    def write_record(self, position, punt_play): # Método para escribir un registro en posición específica
         records = self._read_all_records() # Obtiene todos los registros actuales
         
         if records[position] is None: # Comprueba si la posición está vacía
@@ -28,13 +28,13 @@ class FileHandler: # Define la clase para manejar archivos
             return True # Retorna éxito
         return False # Retorna falso si posición ocupada
     
-    def write_collision(self, position: int, punt_play: PuntPlay): # Método para escribir colisiones
+    def write_collision(self, position, punt_play): # Método para escribir colisiones
         collision_file = os.path.join(self.base_path, f"{position}-col.dat") # Crea nombre archivo colisiones
         
         with open(collision_file, 'ab') as file: # Abre archivo colisiones en modo append binario
             pickle.dump(punt_play, file) # Escribe el objeto al final del archivo
     
-    def read_record(self, position: int) -> tuple[PuntPlay, list[PuntPlay]]: # Método para leer registro y sus colisiones
+    def read_record(self, position): # Método para leer registro y sus colisiones
         records = self._read_all_records() # Obtiene todos los registros
         main_record = records[position] # Obtiene el registro principal en la posición
         

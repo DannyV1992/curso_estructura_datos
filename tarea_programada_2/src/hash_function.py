@@ -2,7 +2,7 @@ class HashFunction:
     def __init__(self, table_size=750): # Constructor con tamaño de tabla predeterminado
         self.table_size = table_size # Almacena el tamaño de la tabla hash
         
-    def calculate_hash(self, punt_play: object) -> int: # Método para calcular hash
+    def calculate_hash(self, punt_play): # Método para calcular hash
         date_str = punt_play.date.replace('/', '') # Elimina guiones de la fecha
         quarter_str = str(punt_play.quarter) # Convierte cuarto a string
         local_team_str = punt_play.teams.split(' @ ')[1] # Obtiene equipo local
@@ -50,7 +50,7 @@ La manera en la que esta funcion hash opera es la siguiente:
             'E': 69
             'T': 84
         
-        Aplicando la fórmula hash_value = (hash_value * 31 + ord(char)) % 750
+        Aplicando la fórmula al ejemplo anterior se vería de esta manera::
             - hash_value = 0
             - hash_value = (0 * 31 + 48) % 750 = 48
             - hash_value = (48 * 31 + 50) % 750 = 1538 % 750 = 38
