@@ -17,5 +17,3 @@ class HashFunction:
         hash_int = int(hash_hex, 16) % 750
         
         return hash_int # Retorna posición hash calculada
-
-# 175_col.dat
