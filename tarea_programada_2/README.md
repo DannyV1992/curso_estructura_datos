@@ -45,8 +45,8 @@ curso_estructura_datos/
    - 3: Salir
 
 ## Archivos de datos
-- Entrada: archivos CSV ubicados en `.raw_data/`
-- Salida: archivos .dat ubicados en en `processed_data/`
+- Entrada: archivos CSV ubicados en `curso_estructura_datos/data/.raw_data/`
+- Salida: archivos .dat ubicados en `curso_estructura_datos/data/processed_data/`
   - `info.dat`: archivo principal (750 registros)
   - `xxx-col.dat`: archivos de colisiones
 
