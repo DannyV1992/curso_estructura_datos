@@ -10,8 +10,7 @@ curso_estructura_datos/
     ├── data/
     │   ├── .raw_data/          # Archivos CSV originales
     │   └── processed_data/     # Archivos binarios generados
-    ├── src/
-    │   ├── __init__.py
+    ├── src/ 
     │   ├── file_handler.py
     │   ├── hash_function.py
     │   ├── main.py             # Archivo para ejecutar el modelo
