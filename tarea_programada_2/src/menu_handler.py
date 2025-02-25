@@ -20,7 +20,8 @@ class MenuHandler:
         self.file_handler.initialize_main_file() # Inicializa archivo principal
         
         for filename in os.listdir(self.raw_data_path): # Itera sobre archivos CSV
-            if filename.startswith('PARTE2_MERGE_ITERATIVO_test_'): # Verifica si es archivo válido
+            if filename.startswith('PARTE2_MERGE_ITERATIVO_resultado_'): # Verifica si es archivo válido
+            # if filename.startswith('PARTE2_MERGE_ITERATIVO_test_'): # Verifica si es archivo válido
                 with open(os.path.join(self.raw_data_path, filename), 'r') as file: # Abre archivo CSV
                     next(file) # Salta encabezado
                     
