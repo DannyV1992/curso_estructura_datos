@@ -6,3 +6,6 @@ class PuntPlay:
         self.quarter = int(quarter) if quarter else 0  # Convierte el cuarto a entero, si es None asigna 0
         self.date = date  # Almacena la fecha de la jugada
         self.time = time  # Almacena la hora de la jugada
+    
+    def __str__(self):  # Método que convierte el objeto PuntPlay a string con formato CSV
+        return f"{self.game_id},{self.teams},{self.yards_gained},{self.quarter},{self.date},{self.time}"  # Retorna string con atributos separados por comas

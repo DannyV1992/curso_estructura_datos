@@ -27,7 +27,7 @@ class MenuHandler:
                     for line in file: # Lee línea por línea
                         game_id, teams, yards_gained, quarter, date, time = line.strip().split(',') # Extrae datos
                         
-                        punt_play = PuntPlay(game_id, teams.split(' @ '), float(yards_gained), int(quarter), date, time) # Crea objeto PuntPlay
+                        punt_play = PuntPlay(game_id, teams.split(' @ ')[0], teams.split(' @ ')[1], float(yards_gained), int(quarter), date, time) # Crea objeto PuntPlay
                         position = self.hash_function.calculate_hash(punt_play) # Calcula posición hash
                         
                         if not self.file_handler.write_record(position, punt_play): # Si posición está ocupada
