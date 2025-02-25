@@ -15,7 +15,7 @@ class HashFunction:
         return hash_value # Retorna posición hash calculada
 
 '''
-La manera en la que esta funcion has opera es la siguiente:
+La manera en la que esta funcion hash opera es la siguiente:
 
 1. Toma tres datos de la jugada:
    - La fecha (`date_str`): elimina las barras (/) para tener solo números y estandarizar el formato para crear una cadena de caracteres más consistente para el cálculo
