@@ -1,7 +1,8 @@
 import pickle
+import os
 from persona import Persona
 
-filename = "personas.dat"
+filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), "personas.dat")
 
 personas = [
     Persona("Alice", 25, "123 Street", 1999),

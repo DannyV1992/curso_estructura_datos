@@ -5,4 +5,4 @@ def main(): # Función principal
     menu_handler.run() # Ejecuta menú principal
 
 if __name__ == "__main__": # Verifica si es el archivo principal
-    main() # Ejecuta función principal1
+    main() # Ejecuta función principal3

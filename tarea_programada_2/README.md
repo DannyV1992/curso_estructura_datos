@@ -7,16 +7,15 @@ Este proyecto implementa un sistema de almacenamiento de registros utilizando un
 ```
 curso_estructura_datos/
 └── tarea_programada_2/
-    ├── src/
-    │   ├── __init__.py
-    │   ├── file_handler.py
-    │   ├── hash_function.py
-    │   ├── menu_handler.py
-    │   ├── punt_play.py
-    │   └── main.py             # Archivo para ejecutar el modelo
     ├── data/
     │   ├── .raw_data/          # Archivos CSV originales
     │   └── processed_data/     # Archivos binarios generados
+    ├── src/ 
+    │   ├── file_handler.py
+    │   ├── hash_function.py
+    │   ├── main.py             # Archivo para ejecutar el modelo
+    │   ├── menu_handler.py
+    │   └── punt_play.py
     └── README.md
 ```
 

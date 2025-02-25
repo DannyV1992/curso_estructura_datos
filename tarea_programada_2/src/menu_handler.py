@@ -20,14 +20,15 @@ class MenuHandler:
         self.file_handler.initialize_main_file() # Inicializa archivo principal
         
         for filename in os.listdir(self.raw_data_path): # Itera sobre archivos CSV
-            if filename.startswith('PARTE1_BUBBLE_resultado_'): # Verifica si es archivo válido
+            if filename.startswith('PARTE2_MERGE_ITERATIVO_resultado_'): # Verifica si es archivo válido
+            # if filename.startswith('PARTE2_MERGE_ITERATIVO_test_'): # Verifica si es archivo válido
                 with open(os.path.join(self.raw_data_path, filename), 'r') as file: # Abre archivo CSV
                     next(file) # Salta encabezado
                     
                     for line in file: # Lee línea por línea
                         game_id, teams, yards_gained, quarter, date, time = line.strip().split(',') # Extrae datos
                         
-                        punt_play = PuntPlay(game_id, *teams.split(' @ '), float(yards_gained), int(quarter), date, time) # Crea objeto PuntPlay
+                        punt_play = PuntPlay(game_id, teams.split(' @ ')[0], teams.split(' @ ')[1], float(yards_gained), int(quarter), date, time) # Crea objeto PuntPlay
                         position = self.hash_function.calculate_hash(punt_play) # Calcula posición hash
                         
                         if not self.file_handler.write_record(position, punt_play): # Si posición está ocupada
