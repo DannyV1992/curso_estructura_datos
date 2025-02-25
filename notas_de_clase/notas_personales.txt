@@ -1,4 +1,4 @@
---------------------------ACCEOS A GITHUB--------------------------
+--------------------------ACCESOS A GITHUB--------------------------
 Primero se debe crear un SSH key, idealmente especificar la ruta exacta
     ssh-keygen -t ed25519 -C "dava01cr@gmail.com" -f "C:\Users\Light Force CR\.ssh\id_ed25519_personal"
 
