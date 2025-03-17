@@ -4,16 +4,16 @@ from cola_prioridad import ColaPrioridad
 from persona import Persona
 
 def menu_principal():
-    print("\n--- Menú Principal ---")
-    print("1. Lista Enlazada Ordenada")
-    print("2. Lista Doble Ordenada")
-    print("3. Cola de Prioridad")
+    print("\n--- Menú principal ---")
+    print("1. Lista enlazada ordenada")
+    print("2. Lista doble ordenada")
+    print("3. Cola de prioridad")
     print("4. Salir")
     return input("Seleccione una opción: ")
 
 def menu_lista_enlazada(lista):
     while True:
-        print("\n--- Menú Lista Enlazada Ordenada ---")
+        print("\n--- Menú Llista enlazada ordenada ---")
         print("1. Agregar persona")
         print("2. Listar personas")
         print("3. Borrar persona")
@@ -26,7 +26,7 @@ def menu_lista_enlazada(lista):
 
 def menu_lista_doble(lista):
     while True:
-        print("\n--- Menú Lista Doblemente Enlazada Ordenada ---")
+        print("\n--- Menú lista doblemente enlazada ordenada ---")
         print("1. Agregar persona")
         print("2. Listar personas")
         print("3. Borrar persona")
@@ -39,7 +39,7 @@ def menu_lista_doble(lista):
 
 def menu_cola_prioridad(cola):
     while True:
-        print("\n--- Menú Cola de Prioridad ---")
+        print("\n--- Menú cola de prioridad ---")
         print("1. Agregar persona")
         print("2. Listar personas")
         print("3. Atender persona (eliminar)")
