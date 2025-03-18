@@ -1,5 +1,4 @@
 class Nodo:
-    # single linked list node
     def __init__(self, data):
         self.__data = data
         self.__next = None

@@ -1,5 +1,4 @@
 from nodo import Nodo
-##from persona import Persona
 
 class ColaPrioridad:
     def __init__(self):
