@@ -1,5 +1,5 @@
 from nodo import Nodo
-from persona import Persona
+##from persona import Persona
 
 class ListaEnlazadaOrdenada:
     def __init__(self):

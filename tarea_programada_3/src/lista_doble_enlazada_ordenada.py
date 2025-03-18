@@ -1,5 +1,4 @@
 from nodo_doble import NodoDoble
-from persona import Persona
 
 class ListaDobleOrdenada:
     def __init__(self):
@@ -79,6 +78,7 @@ class ListaDobleOrdenada:
         if posicion < 1 or posicion > self.__count:
             print(f"La lista tiene {self.__count} elementos.")
             return False
+
         if posicion == 1:
             self.__head = self.__head.getNext()
             if self.__head:
@@ -94,6 +94,7 @@ class ListaDobleOrdenada:
                 current = current.getNext()
             current.getPrev().setNext(current.getNext())
             current.getNext().setPrev(current.getPrev())
+
         self.__count -= 1
         print(f"Elemento en la posición {posicion} ha sido borrado.")
         return True

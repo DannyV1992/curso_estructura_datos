@@ -9,6 +9,9 @@ class Nodo:
 
     def getNext(self):
         return self.__next
+    
+    def getData(self):
+        return self.__data
 
     def __str__(self):
         return f"Data: {self.__data}"
