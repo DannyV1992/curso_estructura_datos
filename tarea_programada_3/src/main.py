@@ -13,7 +13,7 @@ def menu_principal():
 
 def menu_lista_enlazada(lista):
     while True:
-        print("\n--- Menú Llista enlazada ordenada ---")
+        print("\n--- Menú lista enlazada ordenada ---")
         print("1. Agregar persona")
         print("2. Listar personas")
         print("3. Borrar persona")
@@ -111,7 +111,6 @@ def main():
         elif opcion == "3":
             menu_cola_prioridad(cola_prioridad)
         elif opcion == "4":
-            print("Gracias por usar el programa. ¡Hasta luego!")
             break
         else:
             print("Opción inválida. Por favor, intente de nuevo.")
