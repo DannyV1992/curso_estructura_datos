@@ -1,0 +1,24 @@
+Berkeley -> Sacramento (80)
+Berkeley -> San Francisco (80)
+Berkeley -> San Jose (880)
+Berkeley -> Pleasanton (580)
+Berkeley -> Concord (24)
+
+San Jose -> San Francisco (101)
+San Jose -> Los Angeles (101)
+San Jose -> Pleasanton (680)
+
+Los Angeles -> Tracy (5)
+Los Angeles -> Merced (99)
+
+Merced -> Modesto (99)
+
+Modesto -> Stockton (99)
+Modesto -> Tracy (132)
+
+Stockton -> Sacramento (99)
+Stockton -> Concord (4)
+Stockton -> Tracy (5)
+
+Pleasanton -> Concord (680)
+Pleasanton -> Tracy (580)
