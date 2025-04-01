@@ -1,0 +1,4 @@
+- No dirigido
+- Totalmente conectado
+- Sin ciclos
+- Necesita que las aristas tengan pesos
