@@ -1,0 +1,20 @@
+from node import Nodo
+
+arbol = Nodo(20)
+arbol.insert(Nodo(5))
+arbol.insert(Nodo(25))
+
+print("Pre-orden")
+arbol.print_preorden()
+print(" ")
+arbol.insert(Nodo(40))
+arbol.print_preorden()
+print(" ")
+arbol.insert(Nodo(15))
+arbol.print_preorden()
+print(" ")
+print("In-orden")
+arbol.print_inorden()
+print(" ")
+print("Post-orden")
+arbol.print_postorden()
