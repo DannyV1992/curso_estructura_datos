@@ -1,0 +1,7 @@
+- Todos los grafos son arboles
+- No puede tener ciclos
+- Es dirigido
+- conectados
+- Solo hay un camino
+
+- El grado de un arbol es la cantidad de hijos (nodos)
