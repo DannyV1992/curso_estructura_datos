@@ -1,5 +1,3 @@
-- Basado en profundidad
-- Es dirigido
-- No es necesario ser totalmente conectado
-- Con ciclos
-- No necesita que las aristas tengan pesos
+- Problemas de grafos no dirigidos
+- Totalmente conectados
+- No hay ciclos
